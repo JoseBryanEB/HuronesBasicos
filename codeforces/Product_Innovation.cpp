@@ -1,32 +1,20 @@
 #include<bits/stdc++.h>
-#define io_ ios_base::sync_with_stdio(0); cin.tie(0);
-typedef struct Nodelista{
-    long int data;
-    Nodelista *nodoSiguiente;
 
-} Node;
-Node * agregar(Node *list,int element){
-	Node *aux= new Node;
-	aux->nodoSiguiente=list;
-	aux->data=element;
-	list=aux;
-    return list;
-}
-void insert_in_list(Node *head,int element,int position){
-    
-}
+
 using  namespace std;
+#define io_ ios_base::sync_with_stdio(0); cin.tie(0);
 int main (){
     long int n,p;
     cin>>n>>p;
-    p--;
     long int a; 
-    vector<long int> mylist(0);
-    while (n--){
+    list<long int> mylist;
+    list<long int>::iterator it=mylist.end(),aux;
+    p--;
+    for (int i=0;i<n;i++){
         cin>>a;
-        mylist.push_back(a);
+        list<long int>::iterator aux1=mylist.insert(it,a);
+        if(i==p)aux=aux1;   
         }
- 
     int comands=0;
     cin>>comands; 
     
@@ -36,32 +24,32 @@ int main (){
         char op=comand[4];
         switch (op){
             case 'L':{
-                // moveLeft
-                if (p>0)p--;
+                //moveLeft
+                if (aux!=mylist.begin())aux--;
             }break;
             case 'R':{
                 //moveRight
-                if (p<mylist.size()-1)p++; 
+                if (aux!=(--mylist.end()))aux++; 
+
             }break;
             case 'r':{
                 cin>>a;
                 if(comand[6]=='R'){ 
-                    vector<long int> :: iterator it=mylist.begin();
-                    mylist.insert(it+p+1,a);
+                    aux=mylist.insert(++aux,a);
+                    aux--;
                 }
                 else {
-                    vector<long int> :: iterator it=mylist.begin();
-                    mylist.insert(it+p,a);p++;
+                    aux=mylist.insert(aux,a);
+                    aux++;
                 }
             }break;
             case 't':{
-                  vector<long int> :: iterator it=mylist.begin();
-                cout<<*(it+p)<<endl;
+                cout<<*aux<<endl;
             }break;
 
         }
     }
-   /* cout<<endl;
+   /*cout<<endl;
     for (auto a: mylist){
         cout<<a;
     }*/
