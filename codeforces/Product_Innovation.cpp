@@ -47,7 +47,8 @@ int main (){
 
         }
     }
-   /* cout<<endl;
+   /* cout<<endl; 
+   
     for (auto a: mylist){
         cout<<a;
     }*/
