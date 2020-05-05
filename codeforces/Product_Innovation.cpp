@@ -1,6 +1,20 @@
 #include<bits/stdc++.h>
 #define io_ ios_base::sync_with_stdio(0); cin.tie(0);
+typedef struct Nodelista{
+    long int data;
+    Nodelista *nodoSiguiente;
 
+} Node;
+Node * agregar(Node *list,int element){
+	Node *aux= new Node;
+	aux->nodoSiguiente=list;
+	aux->data=element;
+	list=aux;
+    return list;
+}
+void insert_in_list(Node *head,int element,int position){
+    
+}
 using  namespace std;
 int main (){
     long int n,p;
@@ -47,8 +61,7 @@ int main (){
 
         }
     }
-   /* cout<<endl; 
-   
+   /* cout<<endl;
     for (auto a: mylist){
         cout<<a;
     }*/
